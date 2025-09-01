@@ -1,6 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-const sb = createClient('https://ijggmwakoqvoidgoexhp.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqZ2dtd2Frb3F2b2lkZ29leGhwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY0NzMxMjUsImV4cCI6MjA3MjA0OTEyNX0.rGf338LFeig11YV1FsypPnHDaBkn1zOu841jR58XHLY')
+const sb = createClient()
 const run = async () => {
     const { data, error } = await sb
         .from('item')
