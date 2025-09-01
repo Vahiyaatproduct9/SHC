@@ -94,22 +94,34 @@
             max-width: 1000px;
             display: flex;
             flex-wrap: wrap;
+            box-sizing: border-box;
 
             p {
                 flex: 1;
-                min-width: 400px;
+                min-width: 350px;
+                box-sizing: border-box;
             }
 
             .logo {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+                box-sizing: border-box;
+
+                @media screen and (max-width: 768px) {
+                    width: 100%;
+                }
 
                 div {
                     display: flex;
                     align-items: center;
                     justify-content: left;
                     gap: 10px;
+
+                    @media screen and (max-width: 768px) {
+                        flex-direction: row-reverse;
+                        justify-content: right;
+                    }
 
                     img {
                         height: 24px;
