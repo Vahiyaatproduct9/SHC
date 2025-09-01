@@ -9,6 +9,7 @@ const Product = ({ params }: any) => {
     const { id }: { id: string } = React.use(params)
     const [fetchedData, setData] = useState<any>(null)
     const [message, setMessage] = useState<string>('')
+    const [url, setUrl] = useState<string | null>(null)
     useEffect(() => {
         const res = async () => {
             await fetchItem({ id })
@@ -21,6 +22,8 @@ const Product = ({ params }: any) => {
                 })
         }
         res()
+        setUrl(window.location.href)
+        const msg = `Is this Product still available?\n${url}`
     }, [])
     const icon = (<>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=call" />
@@ -62,12 +65,12 @@ const Product = ({ params }: any) => {
                             </p>
                         </div>
                         <div className={css.button}>
-                            <Link href={'mailto:kishordebnath123123@gmail.com'}>
+                            <Link href={`https://wa.me/+919933150280?text=${encodeURIComponent(`Is this Product still available?\n${url}`)}`}>
                                 <button>
                                     <img src={'/whatsapp.png'} />
                                 </button>
                             </Link>
-                            <Link href={'tel: 99338608320'}><button>
+                            <Link href={'tel: +9199338608320'}><button>
                                 {icon}
                                 Contact Now</button>
                             </Link>

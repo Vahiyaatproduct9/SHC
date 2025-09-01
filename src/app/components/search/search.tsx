@@ -11,6 +11,7 @@ const Search = ({ data }: any) => {
     const [fetchedData, setData] = useState<any>(null)
     const [value, setValue] = useState<string>('')
     const [searchRes, setSearchRes] = useState<any>(null)
+    const [shown, setShown] = useState<boolean>(false)
     useEffect(() => {
         if (!data) {
             const fetchD = async () => {
@@ -57,9 +58,9 @@ const Search = ({ data }: any) => {
     return (
         <section className={css.container}>
             <div className={css.search}>
-                <input type='text' value={value} onChange={(t) => setValue(t.target.value)} placeholder='Search' />
+                <input onBlur={() => setTimeout(() => setShown(false), 1)} onFocus={() => setShown(true)} type='text' value={value} onChange={(t) => setValue(t.target.value)} placeholder='Search' />
             </div>
-            {searchRes && searchRes.length > 0 && <div className={css.searchRes}>
+            {shown && searchRes && searchRes.length > 0 && <div className={css.searchRes}>
                 {searchBlock()}
             </div>}
         </section>
