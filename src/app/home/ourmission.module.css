@@ -1,0 +1,99 @@
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFF9BD;
+
+    @media screen and (max-width: 768px) {
+        background: url('../../../public/background.jpeg');
+        background-size: cover;
+    }
+
+    .box {
+        padding: 10px;
+        width: 100%;
+        max-width: 1000px;
+        backdrop-filter: blur(5px);
+
+        .head {
+            width: 100%;
+            display: flex;
+            justify-content: right;
+            margin: 0;
+            font-family: 'JetBrains Mono', Helvetica;
+            color: #808643;
+
+            @media screen and (max-width: 768px) {
+                justify-content: left;
+                color: white;
+            }
+        }
+
+        .body {
+            display: flex;
+            width: 100%;
+            text-align: right;
+            gap: 50px;
+
+            div:nth-child(1) {
+                p {
+                    padding: 30px 0 30px 0;
+                    line-height: 30px;
+                    font-size: 1.1rem;
+                    color: #808643;
+
+                    @media screen and (max-width: 768px) {
+                        color: white;
+                    }
+                }
+
+                .buttonContainer {
+                    width: 100%;
+                    display: flex;
+                    justify-content: right;
+                    align-items: center;
+
+                    button {
+                        width: 100%;
+                        max-width: 400px;
+                        padding: 20px;
+                        border: none;
+                        border-radius: 10px;
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        color: #FFF9BD;
+                        background: #808643;
+                        transition: all 0.1s;
+
+                        @media screen and (max-width: 768px) {
+                            color: #808643;
+                            background: #FFF9BD;
+                            padding: 15px 80px;
+                            width: auto;
+                        }
+
+                        &:active {
+                            transform: scale(0.98);
+                        }
+
+                    }
+                }
+            }
+
+            div:nth-child(2) {
+                img {
+                    height: 400px;
+                    width: 400px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+
+                @media screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+        }
+    }
+}

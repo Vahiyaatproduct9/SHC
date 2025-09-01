@@ -1,0 +1,94 @@
+.container {
+    background: #DEE791;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .box {
+        width: 100%;
+        max-width: 1000px;
+
+        .head {
+            width: 100%;
+            display: flex;
+            justify-content: left;
+            margin: 0;
+            font-family: 'JetBrains Mono', Helvetica;
+            color: white;
+
+            @media screen and (max-width: 768px) {
+                justify-content: right;
+            }
+        }
+
+        .body {
+            width: 100%;
+
+            form {
+                width: 100%;
+
+                .formInput {
+                    display: flex;
+                    flex-direction: column;
+
+                    label {
+                        font-family: 'Delius', 'JetBrains Mono', Helvetica;
+                        padding: 10px;
+                    }
+
+                    input {
+                        font-family: 'JetBrains Mono';
+                        width: 100%;
+                        max-width: 600px;
+                        border-radius: 20px;
+                        padding: 10px;
+                        padding-left: 20px;
+                        font-family: 'JetBrains Mono', Arial, Helvetica, sans-serif;
+                        border: none;
+                        box-sizing: border-box;
+                        outline-color: #DEE791;
+                        transition: all 0.1s;
+
+                        &:focus {
+                            box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.1);
+                        }
+                    }
+                }
+
+                p {
+                    width: 100%;
+                    max-width: 600px;
+                    text-align: center;
+                }
+
+                .buttonInput {
+                    padding: 20px 0 20px 0;
+                    display: flex;
+                    width: 100%;
+
+                    button {
+                        width: 100%;
+                        border: none;
+                        max-width: 600px;
+                        padding: 20px;
+                        font-size: 1.1rem;
+                        color: #808643;
+                        background: #FFF9BD;
+                        border-radius: 14px;
+                        font-family: 'JetBrains Mono', Arial, Helvetica, sans-serif;
+                        transition: all 0.1s;
+
+                        &:active {
+                            transform: scale(0.98);
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
