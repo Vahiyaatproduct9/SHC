@@ -67,6 +67,10 @@
             left: 0;
         }
 
+        .searchBlock {
+            cursor: pointer;
+        }
+
         >div {
             flex: 1;
             background: #DEE791;

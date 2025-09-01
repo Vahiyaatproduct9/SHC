@@ -58,7 +58,7 @@ const Search = ({ data }: any) => {
     return (
         <section className={css.container}>
             <div className={css.search}>
-                <input onBlur={() => setTimeout(() => setShown(false), 1)} onFocus={() => setShown(true)} type='text' value={value} onChange={(t) => setValue(t.target.value)} placeholder='Search' />
+                <input onBlur={() => setTimeout(() => setShown(false), 300)} onFocus={() => setShown(true)} type='text' value={value} onChange={(t) => setValue(t.target.value)} placeholder='Search' />
             </div>
             {shown && searchRes && searchRes.length > 0 && <div className={css.searchRes}>
                 {searchBlock()}
