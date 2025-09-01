@@ -5,6 +5,7 @@ import Block from '../components/block/blockViewer'
 import Search from '../components/search/search'
 import fetchItemList from '@/api/fetchItemList';
 import Message from '../components/message/message';
+import Loading from '../components/loadingScreen/loadingScreen';
 
 function Product() {
     const [fetchedData, setData] = useState<any>(null)
@@ -24,7 +25,7 @@ function Product() {
             <Message setMessage={setMessage} message={message} />
             <div className={css.box}>
                 <Search data={fetchedData} />
-                {fetchedData ? <Block data={fetchedData} /> : <h1>Loading..</h1>}
+                {fetchedData ? <Block data={fetchedData} /> : <Loading />}
             </div>
         </section>
     )

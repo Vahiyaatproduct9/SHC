@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import css from './blockViewer.module.css'
 import { useRouter } from 'next/navigation';
+import Loading from '../loading/loading';
 
 interface props {
     name: string;
@@ -48,7 +49,7 @@ const Block = ({ data }: { data: props }) => {
     }
     return (
         <section>{!fetchedData ?
-            <h1>Loading....</h1> : block(fetchedData)}
+            <Loading /> : block(fetchedData)}
         </section>
     )
 }

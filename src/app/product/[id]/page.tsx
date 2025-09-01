@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import fetchItem from '@/api/fetchItem';
 import Message from '@/app/components/message/message';
 import Link from 'next/link';
+import Loading from '@/app/components/loading/loading';
 const Product = ({ params }: any) => {
     const { id }: { id: string } = React.use(params)
     const [fetchedData, setData] = useState<any>(null)
@@ -85,7 +86,7 @@ const Product = ({ params }: any) => {
             </div>
         </section> :
             <section>
-                <h1>Loading....</h1>
+                <Loading />
             </section>
     )
 }
