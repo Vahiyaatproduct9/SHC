@@ -68,7 +68,7 @@ const Contact = () => {
     }
     return (
         <section className={css.container}>
-            {popup && <Popup setPopup={setPopup} popup={popup} id={id} />}
+            {popup && <Popup setPopup={setPopup} item='item' id={id} />}
             <Message setMessage={setMessage} message={message} />
             {block(data)}
         </section>

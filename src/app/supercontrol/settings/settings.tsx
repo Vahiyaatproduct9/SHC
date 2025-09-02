@@ -4,6 +4,7 @@ import css from './settings.module.css'
 import listItems from '@/api/listItems';
 import AddItem from './addItem';
 import Message from '@/app/components/message/message';
+import Popup from '@/app/components/popup/popup';
 
 interface dataType {
     created_at: Date;
@@ -20,7 +21,8 @@ const Settings = () => {
     const [data, setData] = useState<any>(null)
     const [message, setMessage] = useState<string>('')
     const [add, setAdd] = useState<boolean>(false)
-
+    const [popup, setPopup] = useState<boolean>(false)
+    const [id, setId] = useState<string>('')
     useEffect(() => {
         const run = async () => {
             const { data, error, status } = await listItems()
@@ -30,6 +32,16 @@ const Settings = () => {
         }
         run()
     }, [])
+    useEffect(() => {
+        if (!popup) {
+            const run = async () => {
+                const { data, error, status } = await listItems()
+                if (data && !error) setData(data)
+                else setMessage('Some Error Occured!')
+            }
+            run()
+        }
+    }, [popup])
 
     const block = (data: dataType[]) => data.map(item => {
         return <div key={item.id} className={css.block}>
@@ -37,7 +49,10 @@ const Settings = () => {
                 <img src={item.image_url || '/background.jpeg'} />
 
                 <div className={css.footer}>
-                    <button>Delete</button>
+                    <button onClick={() => {
+                        setPopup(true)
+                        setId(item.id)
+                    }}>Delete</button>
                 </div>
             </div>
             <div className={css.info}>
@@ -65,6 +80,7 @@ const Settings = () => {
 
     return (
         <section className={css.container}>
+            {popup && <Popup setPopup={setPopup} item='item' id={id} />}
             <Message setMessage={setMessage} message={message} />
             {data && block(data)}
             <button className={css.addItem}
