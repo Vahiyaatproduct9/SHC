@@ -8,10 +8,9 @@ const Admin = () => {
     const router = useRouter()
     const [pass, setPass] = useState<string>('')
     const [message, setMessage] = useState<string>('')
-    const handleSubmit = (e: HTMLFormElement) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const r = checkPassword(pass)
-        if (r) {
+        if (checkPassword(pass)) {
             localStorage.setItem('key', pass)
             router.push('/supercontrol')
         }
@@ -25,7 +24,7 @@ const Admin = () => {
         <section className={css.container}>
             <Message setMessage={setMessage} message={message} />
             <div className={css.box}>
-                <form onSubmit={() => handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <input type='password'
                         value={pass}
                         onChange={(t) => setPass(t.target.value)}
