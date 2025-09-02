@@ -12,6 +12,10 @@ function Navbar() {
         { link: '/product', label: 'Products' },
         { link: '/about', label: 'About Us' },
     ]
+    const hiddenPathList = [
+        { link: '/admin', label: 'Admin' },
+        { link: '/supercontrol', label: 'Super Control' }
+    ]
     const pathname = usePathname()
     const router = useRouter()
     const [activeTab, setActiveTab] = useState<string | null>(null)
@@ -38,34 +42,16 @@ function Navbar() {
         })
     }, [])
     useEffect(() => {
-        pathname && setActiveTab(pathList.filter(item => item.link === pathname)[0]?.label || 'Products')
-        console.log(pathname)
-    }, [])
-    useEffect(() => {
         setmobileNav(false)
-        switch (activeTab) {
-            case 'Home':
-                if (pathname !== '/') router.push('/')
-                break
-
-            case 'Products':
-                if (pathname !== '/product') router.push('/product')
-                break
-
-            case 'About Us':
-                if (pathname !== '/about') router.push('/about')
-                break
-            default:
-                break;
-        }
+        router.push(pathList.filter(item => item.label === activeTab)[0]?.link || pathname)
     }, [activeTab])
     const list = () => {
-        return pathList.map((item, index) => {
+        return pathList.filter(a => a.link !== '/admin').map((item, index) => {
             return <li key={index} className={(activeTab === item.label) ? css.active : undefined} onClick={() => setActiveTab(item.label)}>{item.label}</li>
         })
     }
     return (
-        <motion.div
+        pathList.map(item => item.link).includes(pathname) && <motion.div
             animate={{ top: up }}
             className={css.container}>
             <div className={css.box}>
@@ -84,16 +70,14 @@ function Navbar() {
                     </div>}
 
             </div>
-            {
-                mobile && <motion.div
-                    animate={!mobilenav ? { height: 0 } : { height: 'fit-content' }}
-                    transition={{ ease: 'easeOut' }}
-                    className={css.mobileNav}>
-                    <ul>
-                        {list()}
-                    </ul>
-                </motion.div>
-            }
+            {mobile && <motion.div
+                animate={!mobilenav ? { height: 0 } : { height: 'fit-content' }}
+                transition={{ ease: 'easeOut' }}
+                className={css.mobileNav}>
+                <ul>
+                    {list()}
+                </ul>
+            </motion.div>}
         </motion.div >
     )
 }

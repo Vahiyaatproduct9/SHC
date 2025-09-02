@@ -1,0 +1,93 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    .block {
+        display: flex;
+        justify-content: space-between;
+        max-width: 400px;
+        width: 100%;
+        background: rgba(245, 245, 245, 0.5);
+        padding: 10px;
+        box-sizing: border-box;
+        border: solid 1px grey;
+        border-radius: 10px;
+
+
+        .image {
+            width: fit-content;
+            height: fit-content;
+
+            img {
+                height: 100%;
+                width: 100%;
+                max-width: 160px;
+                max-height: 200px;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+
+            .footer {
+                width: 100%;
+                display: flex;
+
+                button {
+                    flex: 1;
+                    padding: 10px 20px;
+                    border: solid 1px grey;
+                    background: rgba(255, 0, 0, 0.5);
+                    border-radius: 10px;
+
+                    &:active {
+                        background: rgba(255, 0, 0, 1);
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .info {
+            flex: 1;
+            padding: 10px;
+            gap: 10px;
+
+            .list {
+                margin-top: 10px;
+
+                label {
+                    font-weight: 600;
+                }
+
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+
+    .addItem {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 10px;
+        padding: 20px 40px;
+        border: solid 1px grey;
+        transition: all 0.1s;
+        background: rgba(255, 136, 0, 0.7);
+        font-weight: 600;
+
+        &:active {
+            transform: scale(0.98);
+            background: orange;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+
+    .blockContainer {
+        width: 100%;
+        max-width: 400px;
+        background: rgba(245, 245, 245, 0.8);
+        filter: drop-shadow(0 0 13px rgba(0, 0, 0, 0.219));
+        border: solid 1px grey;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+        padding: 10px;
+        border-radius: 10px;
+
+        .blockHead {
+            span {
+                font-weight: 600;
+                font-family: 'JetBrains Mono', Arial, Helvetica, sans-serif;
+            }
+        }
+
+        .blockBody {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            span {
+                flex-grow: 1;
+                min-width: fit-content;
+                font-family: 'JetBrains Mono', Arial, Helvetica, sans-serif;
+                font-weight: 600;
+
+                &:nth-last-child(1) {
+                    text-align: right;
+                    margin-top: 20px;
+                }
+
+                label {
+                    font-weight: normal;
+                    font-family: Geist, Arial, Helvetica, sans-serif;
+                }
+            }
+        }
+
+        .footer {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            gap: 5px;
+
+            button {
+                padding: 10px;
+                flex: 1;
+                border-radius: 10px;
+                border: solid 1px grey;
+                transition: all 0.1s;
+
+
+                &:active {
+                    transform: scale(0.98);
+                }
+
+                &:nth-child(1):active {
+                    background: red;
+                }
+
+                &:nth-child(2):active,
+                &:nth-child(3):active {
+                    background: rgb(22, 160, 22);
+                }
+
+                &:nth-child(4):active {
+                    background: rgb(53, 78, 155);
+                }
+            }
+        }
+    }
+
+}

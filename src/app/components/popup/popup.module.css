@@ -1,0 +1,60 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+
+    .popupBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+
+        .title {
+            padding: 10px;
+            font-weight: 600;
+            font-family: Delius, 'JetBrains Mono', Arial, Helvetica, sans-serif;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+
+            button {
+                padding: 10px 40px;
+                border-radius: 10px;
+                border: solid 1px grey;
+
+                &:nth-child(2) {
+                    animation-name: flicker;
+                    animation-duration: 1s;
+                    animation-timing-function: ease-in-out;
+                    animation-iteration-count: infinite;
+                }
+
+            }
+
+        }
+    }
+}
+
+@keyframes flicker {
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

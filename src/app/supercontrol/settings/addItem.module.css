@@ -1,0 +1,112 @@
+.container {
+    width: 100%;
+    position: fixed;
+    height: fit-content;
+    overflow: scroll;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+        .imageCover {
+            border-radius: 10px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: solid 1px grey;
+            height: 200px;
+            width: 200px;
+            overflow: hidden;
+
+            @media screen and (max-width: 400px) {
+                max-width: 200px;
+                max-height: 200px;
+            }
+
+
+            img {
+                height: 100%;
+                width: 100%;
+                max-height: 300px;
+                max-width: 300px;
+                object-fit: cover;
+
+                @media screen and (max-width: 400px) {
+                    max-width: 200px;
+                    max-height: 200px;
+                }
+            }
+
+            button {
+                border-radius: 10px;
+                padding: 10px 20px;
+                border: solid 1px grey;
+                transition: all 0.1s;
+
+                &:active {
+                    transform: scale(0.98);
+                }
+            }
+        }
+
+        div {
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+
+
+            input {
+                box-sizing: border-box;
+                padding: 10px;
+                border-radius: 10px;
+                border: solid 1px white;
+                width: 100%;
+                box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.3);
+            }
+
+            textarea {
+                padding: 10px;
+                border-radius: 10px;
+                resize: none;
+                height: 50px;
+                border: solid 1px grey;
+                font-family: 'JetBrains Mono', Arial, Helvetica, sans-serif;
+            }
+        }
+
+        >button {
+            padding: 10px;
+            border: solid 1px grey;
+            border-radius: 10px;
+            transition: all 0.1s;
+            background: orange;
+            color: white;
+            font-weight: 600;
+            width: 100%;
+            max-width: 400px;
+            flex-direction: row;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            &:active {
+                transform: scale(0.98)
+            }
+        }
+    }
+}
